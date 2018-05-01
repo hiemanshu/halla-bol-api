@@ -12,7 +12,8 @@ defmodule HallaBolWeb.CampaignView do
 
   def render("campaign.json", %{campaign: campaign}) do
     %{name: campaign.name,
-      intro: campaign.intro,
+      description: campaign.description,
+      image: campaign.image,
       live: campaign.live,
       slug: campaign.slug,
       featured: campaign.featured}
