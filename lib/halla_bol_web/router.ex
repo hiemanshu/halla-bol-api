@@ -5,7 +5,8 @@ defmodule HallaBolWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", HallaBolWeb do
+  scope "/", HallaBolWeb do
     pipe_through :api
+    resources "/campaigns", CampaignController, except: [:new, :edit]
   end
 end
