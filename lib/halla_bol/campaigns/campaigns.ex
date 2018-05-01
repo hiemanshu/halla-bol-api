@@ -51,6 +51,7 @@ defmodule HallaBol.Campaigns do
   """
   def create_campaign(attrs \\ %{}) do
     %Campaign{}
+    |> Repo.preload([:actions])
     |> Campaign.changeset(attrs)
     |> Repo.insert()
   end
@@ -69,6 +70,7 @@ defmodule HallaBol.Campaigns do
   """
   def update_campaign(%Campaign{} = campaign, attrs) do
     campaign
+    |> Repo.preload([:actions])
     |> Campaign.changeset(attrs)
     |> Repo.update()
   end
