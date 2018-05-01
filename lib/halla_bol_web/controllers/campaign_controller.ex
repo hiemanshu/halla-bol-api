@@ -20,8 +20,8 @@ defmodule HallaBolWeb.CampaignController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    campaign = Campaigns.get_campaign!(id)
+  def show(conn, %{"slug" => slug}) do
+    campaign = Campaigns.get_campaign!(slug)
     render(conn, "show.json", campaign: campaign)
   end
 

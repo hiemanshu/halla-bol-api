@@ -7,6 +7,6 @@ defmodule HallaBolWeb.Router do
 
   scope "/", HallaBolWeb do
     pipe_through :api
-    resources "/campaigns", CampaignController, except: [:new, :edit]
+    resources "/campaigns", CampaignController, except: [:new, :edit], param: "slug"
   end
 end
