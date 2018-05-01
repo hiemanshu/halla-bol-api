@@ -25,16 +25,16 @@ defmodule HallaBolWeb.CampaignController do
     render(conn, "show.json", campaign: campaign)
   end
 
-  def update(conn, %{"id" => id, "campaign" => campaign_params}) do
-    campaign = Campaigns.get_campaign!(id)
+  def update(conn, %{"slug" => slug, "campaign" => campaign_params}) do
+    campaign = Campaigns.get_campaign!(slug)
 
     with {:ok, %Campaign{} = campaign} <- Campaigns.update_campaign(campaign, campaign_params) do
       render(conn, "show.json", campaign: campaign)
     end
   end
 
-  def delete(conn, %{"id" => id}) do
-    campaign = Campaigns.get_campaign!(id)
+  def delete(conn, %{"slug" => slug}) do
+    campaign = Campaigns.get_campaign!(slug)
     with {:ok, %Campaign{}} <- Campaigns.delete_campaign(campaign) do
       send_resp(conn, :no_content, "")
     end
