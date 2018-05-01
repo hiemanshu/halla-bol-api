@@ -35,7 +35,7 @@ defmodule HallaBol.Campaigns do
       ** (Ecto.NoResultsError)
 
   """
-  def get_campaign!(slug), do: Repo.get_by!(Campaign, slug: slug)
+  def get_campaign!(slug), do: Repo.get_by!(Campaign, slug: slug) |> Repo.preload([:actions])
 
   @doc """
   Creates a campaign.

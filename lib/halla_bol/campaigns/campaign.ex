@@ -2,6 +2,8 @@ defmodule HallaBol.Campaigns.Campaign do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias HallaBol.Actions.Action
+
   schema "campaigns" do
     field :featured, :boolean, default: false
     field :description, :string
@@ -9,6 +11,7 @@ defmodule HallaBol.Campaigns.Campaign do
     field :name, :string
     field :slug, :string
     field :image, :string
+    has_many :actions, Action
 
     timestamps()
   end

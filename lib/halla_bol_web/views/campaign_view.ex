@@ -7,7 +7,13 @@ defmodule HallaBolWeb.CampaignView do
   end
 
   def render("show.json", %{campaign: campaign}) do
-    render_one(campaign, CampaignView, "campaign.json")
+    Map.merge(
+      render_one(campaign, CampaignView, "campaign.json"),
+      %{
+        actions: render_many(campaign.actions, HallaBolWeb.ActionView, "action.json"),
+        id: campaign.id
+      }
+    )
   end
 
   def render("campaign.json", %{campaign: campaign}) do
