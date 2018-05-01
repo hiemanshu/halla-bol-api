@@ -17,6 +17,8 @@ defmodule HallaBolWeb.Endpoint do
     plug Phoenix.CodeReloader
   end
 
+  plug CORSPlug
+
   plug Plug.Logger
 
   plug Plug.Parsers,
